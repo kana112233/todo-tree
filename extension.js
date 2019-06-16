@@ -751,6 +751,7 @@ function activate( context )
             exportTree( JSON.stringify( provider.exportTree(), null, 2 ), ".json" );
         } ) );
 
+        // todoTreeVIewExplorer 使用扩展时
         context.subscriptions.push( todoTreeViewExplorer.onDidExpandElement( function( e ) { provider.setExpanded( e.element.fsPath, true ); } ) );
         context.subscriptions.push( todoTreeView.onDidExpandElement( function( e ) { provider.setExpanded( e.element.fsPath, true ); } ) );
         context.subscriptions.push( todoTreeViewExplorer.onDidCollapseElement( function( e ) { provider.setExpanded( e.element.fsPath, false ); } ) );
@@ -771,6 +772,7 @@ function activate( context )
         context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.scanOpenFilesOnly', scanOpenFilesOnly ) );
         context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.scanWorkspace', scanWorkspace ) );
 
+        //改变激活的tab时事件
         context.subscriptions.push( vscode.window.onDidChangeActiveTextEditor( function( e )
         {
             if( e && e.document )
@@ -792,7 +794,7 @@ function activate( context )
                 documentChanged( e.document );
             }
         } ) );
-
+        // 保存文件时的事件did sava text document
         context.subscriptions.push( vscode.workspace.onDidSaveTextDocument( document =>
         {
             if( document.uri.scheme === "file" && path.basename( document.fileName ) !== "settings.json" )
@@ -803,7 +805,7 @@ function activate( context )
                 }
             }
         } ) );
-
+        // 打开文件时的事件did open text document
         context.subscriptions.push( vscode.workspace.onDidOpenTextDocument( document =>
         {
             if( vscode.workspace.getConfiguration( 'todo-tree' ).autoRefresh === true )
@@ -815,7 +817,7 @@ function activate( context )
                 }
             }
         } ) );
-
+        // 关闭文件事件 close text 
         context.subscriptions.push( vscode.workspace.onDidCloseTextDocument( document =>
         {
             delete openDocuments[ document.fileName ];
@@ -831,7 +833,7 @@ function activate( context )
                 }
             }
         } ) );
-
+        // 修改文件时事件
         context.subscriptions.push( vscode.workspace.onDidChangeConfiguration( function( e )
         {
             if( e.affectsConfiguration( "todo-tree" ) )
@@ -873,14 +875,14 @@ function activate( context )
                 setButtonsAndContext();
             }
         } ) );
-
+        // 改变工作文件时事件
         context.subscriptions.push( vscode.workspace.onDidChangeWorkspaceFolders( function()
         {
             provider.clear( vscode.workspace.workspaceFolders );
             provider.rebuild();
             rebuild();
         } ) );
-
+        // 改变文件内容时事件
         context.subscriptions.push( vscode.workspace.onDidChangeTextDocument( function( e )
         {
             documentChanged( e.document );
