@@ -547,7 +547,10 @@ function activate( context )
     }
 
     function collapse() { context.workspaceState.update( 'expanded', false ).then( clearExpansionStateAndRefresh ); }
-    function expand() { context.workspaceState.update( 'expanded', true ).then( clearExpansionStateAndRefresh ); }
+    function expand() { 
+        // context.
+       context.workspaceState.update( 'expanded', true ).then( clearExpansionStateAndRefresh ); 
+    }
     function groupByTag() { context.workspaceState.update( 'grouped', true ).then( refresh ); }
     function ungroupByTag() { context.workspaceState.update( 'grouped', false ).then( refresh ); }
 

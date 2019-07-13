@@ -8,6 +8,9 @@ var highlights = require( './highlights.js' );
 function getIcon( context, tag )
 {
     var colour = highlights.getIconColour( tag );
+    colour = colour ? colour : 'black';
+    // console.log('color tag')
+    // console.log(tag)
 
     var darkIconPath = context.asAbsolutePath( path.join( "resources/icons", "dark", "todo-green.svg" ) );
     var lightIconPath = context.asAbsolutePath( path.join( "resources/icons", "light", "todo-green.svg" ) );

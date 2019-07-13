@@ -172,9 +172,14 @@ function getAttribute( tag, attribute, defaultValue )
     else
     {
         var defaultHighlight = config.get( 'defaultHighlight' );
-        if( defaultHighlight[ attribute ] !== undefined )
+        // console.log('defaultHighlight');
+      
+        var attributeTag = defaultHighlight[tag];
+        // console.log('tag');
+        // console.log(pp);
+        if(attributeTag !== undefined && attributeTag[ attribute ] !== undefined )
         {
-            return defaultHighlight[ attribute ];
+            return attributeTag[ attribute ];
         }
     }
     return defaultValue;
@@ -207,7 +212,7 @@ function getOpacity( tag )
 
 function getIcon( tag )
 {
-    return getAttribute( tag, 'icon', undefined );
+    return getAttribute( tag, 'icon', 'tasklist' );
 }
 
 function getIconColour( tag )
