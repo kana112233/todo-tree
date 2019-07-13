@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Language="en-US" Id="todo-tree" Version="0.0.135" Publisher="Gruntfuggly"/>
+    <Identity Language="en-US" Id="todo-fix-tip" Version="1.0.1" Publisher="todo-fix-tip"/>
     <DisplayName>Todo Tree</DisplayName>
     <Description xml:space="preserve">Show TODO, FIXME, etc. comment tags in a tree view</Description>
     <Tags>todo,task,tasklist,multi-root ready</Tags>
@@ -14,10 +14,10 @@
       <Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="" />
       <Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
       
-        <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/Gruntfuggly/todo-tree" />
-        <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://github.com/Gruntfuggly/todo-tree" />
+        <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/makey22112/todo-tree" />
+        <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://github.com/makey22112/todo-tree" />
         
-          <Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://github.com/Gruntfuggly/todo-tree" />
+          <Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://github.com/makey22112/todo-tree" />
         
       
       
