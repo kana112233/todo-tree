@@ -137,7 +137,7 @@ function getDecoration( tag )
 
     decorationOptions.light = { backgroundColor: lightBackgroundColour, color: lightForegroundColour };
     decorationOptions.dark = { backgroundColor: darkBackgroundColour, color: darkForegroundColour };
-
+    // tip 这里是显示样式 装饰器的
     return vscode.window.createTextEditorDecorationType( decorationOptions );
 }
 
@@ -334,7 +334,8 @@ function highlight( editor )
                 documentHighlights[ tag ].push( decoration );
             }
         }
-
+        // tip 这里是显示编辑区域的样式修改的
+        console.log(documentHighlights)
         if( decorations[ editor.id ] )
         {
             decorations[ editor.id ].forEach( function( decoration )
@@ -348,6 +349,7 @@ function highlight( editor )
         {
             var decoration = getDecoration( tag );
             decorations[ editor.id ].push( decoration );
+            // tip 样式 - 对应的位置
             editor.setDecorations( decoration, documentHighlights[ tag ] );
         } );
     }
