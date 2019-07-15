@@ -335,7 +335,7 @@ function highlight( editor )
             }
         }
         // tip 这里是显示编辑区域的样式修改的
-        console.log(documentHighlights)
+        // console.log(documentHighlights)
         if( decorations[ editor.id ] )
         {
             decorations[ editor.id ].forEach( function( decoration )
