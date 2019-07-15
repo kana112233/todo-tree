@@ -10,7 +10,7 @@
     "tasklist",
     "multi-root ready"
   ],
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "icon": "resources/todo-tree.png",
   "publisher": "todo-fix-tip",
@@ -259,7 +259,7 @@
       "properties": {
         "todo-tree.regex": {
           "type": "string",
-          "default": "((//|#|<!--|;|/\\*|^)\\s*($TAGS)|^\\s*- \\[ \\])",
+          "default": "((//|#|<!--|;|/\\*|\^)\\s*($TAGS)|^\\s*- \\[ \\])",
           "markdownDescription": "Regular expression for matching TODOs. Note: $TAGS will be replaced by the tag list"
         },
         "todo-tree.tags": {
