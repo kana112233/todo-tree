@@ -406,6 +406,8 @@ class TreeNodeProvider
             }
             else if( node.type === TODO )
             {
+               
+
                 if( node.extraLines && node.extraLines.length > 0 )
                 {
                     treeItem.collapsibleState = vscode.TreeItemCollapsibleState.Expanded;
@@ -435,6 +437,8 @@ class TreeNodeProvider
                         node.endColumn
                     ]
                 };
+
+                treeItem.contextValue = 'todoItem';
             }
         }
 
