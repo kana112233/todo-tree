@@ -10,7 +10,7 @@
     "tasklist",
     "multi-root ready"
   ],
-  "version": "1.0.3",
+  "version": "1.1.0",
   "license": "MIT",
   "icon": "resources/todo-tree.png",
   "publisher": "todo-fix-tip",
@@ -55,6 +55,13 @@
       ]
     },
     "menus": {
+      "view/item/context":[
+        {
+          "command": "todo-tree.passTag",
+          "when": "view =~ /todo-tree/ && viewItem == todoItem",
+          "group": "navigation@1"
+        }
+      ],
       "view/title": [
         {
           "command": "todo-tree.scanOpenFilesOnly",
@@ -238,6 +245,11 @@
         "category": "Todo Tree"
       },
       {
+        "command": "todo-tree.passTag",
+        "title": "pass tag",
+        "category": "Todo Tree"
+      },
+      {
         "command": "todo-tree.toggleStatusBar",
         "title": "Toggle Status Indication Type",
         "category": "Todo Tree"
@@ -265,14 +277,9 @@
         "todo-tree.tags": {
           "type": "array",
           "default": [
-            "TODO",
-            "todo",
-            "FIXME",
-            "fixme",
-            "FIX",
-            "fix",
-            "TIP",
-            "tip"
+            "TODO:",
+            "FIXME:",
+            "TIP:"
           ],
           "markdownDescription": "List of tags"
         },
@@ -388,7 +395,7 @@
         "todo-tree.defaultHighlight": {
           "type": "object",
           "default": {
-              "TODO": {
+              "TODO:": {
                 "icon": "tasklist",
                 "type": "line",
                 "foreground": "black",
@@ -396,56 +403,20 @@
                 "opacity": 50,
                 "iconColour": "green"
               },
-              "todo": {
-                "icon": "tasklist",
-                "type": "line",
-                "foreground": "black",
-                "background": "white",
-                "opacity": 50,
-                "iconColour": "green"
-              },
-              "FIXME": {
+              "FIXME:": {
                   "icon": "bug",
                   "type": "line",
                   "foreground": "red",
                   "background": "white",
                   "iconColour": "red"
               },
-              "fixme": {
-                "icon": "bug",
-                "type": "line",
-                "foreground": "red",
-                "background": "white",
-                "iconColour": "red"
-              },
-              "FIX": {
-                  "icon": "bug",
-                  "type": "line",
-                  "foreground": "red",
-                  "background": "white",
-                  "iconColour": "red"
-              },
-              "fix": {
-                "icon": "bug",
-                "type": "line",
-                "foreground": "red",
-                "background": "white",
-                "iconColour": "red"
-            },
-              "TIP": {
+              "TIP:": {
                   "icon": "light-bulb",
                   "type": "line",
                   "foreground": "green",
                   "background": "white",
                   "iconColour": "black"
-              },
-              "tip": {
-                "icon": "light-bulb",
-                "type": "line",
-                "foreground": "green",
-                "background": "white",
-                "iconColour": "black"
-            }
+              }
           },
           "markdownDescription": "Default configuration for highlighting. [Read more...](https://github.com/makey22112/todo-tree#highlighting)"
         },
