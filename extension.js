@@ -10,6 +10,8 @@ var highlights = require( './highlights.js' );
 var config = require( './config.js' );
 var utils = require( './utils.js' );
 
+var fs = require('fs');
+
 var searchResults = [];
 var searchList = [];
 var currentFilter;
@@ -563,6 +565,7 @@ function activate( context )
         refreshTree();
     }
 
+
     function addTag()
     {
         vscode.window.showInputBox( { prompt: "New tag", placeHolder: "e.g. FIXME" } ).then( function( tag )
@@ -590,6 +593,34 @@ function activate( context )
             } );
             vscode.workspace.getConfiguration( 'todo-tree' ).update( 'tags', tags, true );
         } );
+    }
+
+    
+    function readFile(node){ //remove .fsPath,node.line,node.tag
+        var path = node.fsPath,lineNum = node.line,tag = node.tag;
+        fs.readFile(path, function (err, data) {
+            if (err) {
+                return console.error(err);
+            }
+            var fileData = data.toString();
+            console.log("异步读取: " + fileData);
+            var listFile = fileData.split('\n');
+            
+            listFile[lineNum] = listFile[lineNum].replace(tag+' ','');
+
+            var result = listFile.join('\n');
+
+            fs.writeFile(path, result,  function(err) {
+                if (err) {
+                    return console.error(err);
+                }
+                // provider.remove(path,node.parent);
+                // updateStatusBar();
+                // refreshTree();
+                console.log("数据写入成功！");
+             });
+
+        });
     }
 
     function scanOpenFilesOnly()
@@ -671,7 +702,7 @@ function activate( context )
             vscode.window.showErrorMessage( "todo-tree: Failed to find vscode-ripgrep - please install ripgrep manually and set 'todo-tree.ripgrep' to point to the executable" );
             return;
         }
-
+        // tip 跳转到tag的位置
         context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.revealTodo', ( file, line, column, endColumn ) =>
         {
             selectedDocument = file;
@@ -770,7 +801,15 @@ function activate( context )
         context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.groupByTag', groupByTag ) );
         context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.ungroupByTag', ungroupByTag ) );
         context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.addTag', addTag ) );
-        context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.removeTag', removeTag ) );
+        context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.removeTag', removeTag ) ); 
+        // passTag
+        context.subscriptions.push( 
+            vscode.commands.registerCommand('todo-tree.passTag', (node) => {
+                vscode.window.showInformationMessage(`Successfully delete ${node.label}.`);
+                readFile(node);
+            })
+        );
+
         context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.toggleStatusBar', toggleStatusBar ) );
         context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.scanOpenFilesOnly', scanOpenFilesOnly ) );
         context.subscriptions.push( vscode.commands.registerCommand( 'todo-tree.scanWorkspace', scanWorkspace ) );
