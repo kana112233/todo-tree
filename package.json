@@ -288,7 +288,7 @@
         },
         "todo-tree.excludeGlobs": {
           "type": "array",
-          "default": [],
+          "default": ["/home/hj/vscode/test/xxx/*"],
           "markdownDescription": "Globs for use in limiting search results by exclusion (applied after **includeGlobs**), e.g. `[\"**/*.txt\"]` to ignore all .txt files"
         },
         "todo-tree.passGlobsToRipgrep": {
@@ -382,7 +382,7 @@
         },
         "todo-tree.excludedWorkspaces": {
           "type": "array",
-          "default": [],
+          "default": ["/home/hj/vscode/test/xxx/*"],
           "markdownDescription": "An array of workspace names to exclude as roots in the tree (wildcards can be used)."
         },
         "todo-tree.defaultHighlight": {
