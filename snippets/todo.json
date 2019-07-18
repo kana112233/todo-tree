@@ -1,0 +1,23 @@
+{
+    "TODO add": {
+        "prefix": "todo",
+        "body": [
+            "// TODO: $1"
+        ],
+        "description": "add todo tag"
+    },
+    "FIXME add": {
+        "prefix": "fixme",
+        "body": [
+            "// FIXME: $1"
+        ],
+        "description": "add fixme tag"
+    },
+    "TIP add": {
+        "prefix": "tip",
+        "body": [
+            "// TIP: $1"
+        ],
+        "description": "add tip tag"
+    }
+}

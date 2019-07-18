@@ -148,8 +148,8 @@ function isIncluded( name, includes, excludes )
 {
     console.log(name)
     console.log(excludes)
-    var included = includes.length === 0 || micromatch.isMatch( name, includes );
-    if( included === true && micromatch.isMatch( name, excludes ) )
+    var included = includes.length === 0 || micromatch.contains( name, includes );
+    if( included === true && micromatch.contains( name, excludes ) )
     {
         included = false;
     }
