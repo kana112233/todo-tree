@@ -55,7 +55,7 @@
       ]
     },
     "menus": {
-      "view/item/context":[
+      "view/item/context": [
         {
           "command": "todo-tree.passTag",
           "when": "view =~ /todo-tree/ && viewItem == todoItem",
@@ -316,7 +316,9 @@
         },
         "todo-tree.excludeGlobs": {
           "type": "array",
-          "default": ["node_modules"],
+          "default": [
+            "node_modules"
+          ],
           "markdownDescription": "Globs for use in limiting search results by exclusion (applied after **includeGlobs**), e.g. `[\"**/*.txt\"]` to ignore all .txt files"
         },
         "todo-tree.passGlobsToRipgrep": {
@@ -410,56 +412,58 @@
         },
         "todo-tree.excludedWorkspaces": {
           "type": "array",
-          "default": ["node_modules"],
+          "default": [
+            "node_modules"
+          ],
           "markdownDescription": "An array of workspace names to exclude as roots in the tree (wildcards can be used)."
         },
         "todo-tree.defaultHighlight": {
           "type": "object",
           "default": {
-              "TODO:": {
-                "icon": "tasklist",
-                "type": "line",
-                "foreground": "black",
-                "background": "white",
-                "opacity": 50,
-                "iconColour": "green"
-              },
-              "FIXME:": {
-                  "icon": "bug",
-                  "type": "line",
-                  "foreground": "red",
-                  "background": "white",
-                  "iconColour": "red"
-              },
-              "TIP:": {
-                  "icon": "light-bulb",
-                  "type": "line",
-                  "foreground": "green",
-                  "background": "white",
-                  "iconColour": "black"
-              },
-              "TODO": {
-                "icon": "tasklist",
-                "type": "line",
-                "foreground": "black",
-                "background": "white",
-                "opacity": 50,
-                "iconColour": "green"
-              },
-              "FIXME": {
-                  "icon": "bug",
-                  "type": "line",
-                  "foreground": "red",
-                  "background": "white",
-                  "iconColour": "red"
-              },
-              "TIP": {
-                  "icon": "light-bulb",
-                  "type": "line",
-                  "foreground": "green",
-                  "background": "white",
-                  "iconColour": "black"
-              }
+            "TODO:": {
+              "icon": "tasklist",
+              "type": "line",
+              "foreground": "black",
+              "background": "white",
+              "opacity": 50,
+              "iconColour": "green"
+            },
+            "FIXME:": {
+              "icon": "bug",
+              "type": "line",
+              "foreground": "red",
+              "background": "white",
+              "iconColour": "red"
+            },
+            "TIP:": {
+              "icon": "light-bulb",
+              "type": "line",
+              "foreground": "green",
+              "background": "white",
+              "iconColour": "black"
+            },
+            "TODO": {
+              "icon": "tasklist",
+              "type": "line",
+              "foreground": "black",
+              "background": "white",
+              "opacity": 50,
+              "iconColour": "green"
+            },
+            "FIXME": {
+              "icon": "bug",
+              "type": "line",
+              "foreground": "red",
+              "background": "white",
+              "iconColour": "red"
+            },
+            "TIP": {
+              "icon": "light-bulb",
+              "type": "line",
+              "foreground": "green",
+              "background": "white",
+              "iconColour": "black"
+            }
           },
           "markdownDescription": "Default configuration for highlighting. [Read more...](https://github.com/makey22112/todo-tree#highlighting)"
         },
@@ -538,5 +542,6 @@
     "lib-manager": "^0.0.7",
     "node-qunit": "^1.0.0",
     "qunit": "^2.8.0"
-  }
+  },
+  "__npminstall_done": false
 }
