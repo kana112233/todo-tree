@@ -1,18 +1,17 @@
 {
   "name": "todo-fix-tip",
   "displayName": "todo fix tip myselft",
-  "description": "Show TODO, FIXME fix tip , comment tags in a tree view",
+  "description": "Show TODO, FIXME TIP",
   "keywords": [
     "todo",
     "fix",
     "tip",
     "task",
-    "tasklist",
-    "multi-root ready"
+    "tasklist"
   ],
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
-  "icon": "resources/todo-tree.png",
+  "icon": "resources/todo.png",
   "publisher": "todo-fix-tip",
   "engines": {
     "vscode": "^1.5.0"
@@ -36,7 +35,7 @@
         {
           "id": "todo-tree-container",
           "title": "TODOs",
-          "icon": "resources/todo-tree-container.svg"
+          "icon": "resources/todo.svg"
         }
       ]
     },
@@ -272,7 +271,15 @@
         "path": "./snippets/todo.json"
       },
       {
-        "language": "javascript",
+        "language": "html",
+        "path": "./snippets/todo.json"
+      },
+      {
+        "language": "markdown",
+        "path": "./snippets/todo.json"
+      },
+      {
+        "language": "plaintext",
         "path": "./snippets/todo.json"
       }
     ],
